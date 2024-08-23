@@ -1,0 +1,57 @@
+//////////Practical Session 12-09-2023/////////////
+//=========================================================================================================
+//Q.1) WAP to creat text file,store some data into file and display (read) data from file.
+//=========================================================================================================
+#include<stdio.h>
+int main()
+{
+ 
+    FILE *fp;   /* file pointer*/
+    char fName[20];
+ 
+    printf("\nEnter file name to create :");
+    scanf("%s",fName);
+ 
+    /*creating (open) a file*/
+    fp=fopen(fName,"w");
+    /*check file created or not*/
+    if(fp==NULL)
+    {
+        printf("File does not created!!!");
+        exit(0); /*exit from program*/
+    }
+ 
+    printf("File created successfully.");
+    /*writting into file*/
+    putc('A',fp);
+    putc('B',fp);
+    putc('C',fp);
+ 
+    printf("\nData written successfully.");
+    fclose(fp);
+ 
+    /*again open file to read data*/
+    fp=fopen(fName,"r");
+    if(fp==NULL)
+    {
+        printf("\nCan't open file!!!");
+        exit(0);
+    }
+ 
+    printf("Contents of file is :\n");
+    printf("%c",getc(fp));
+    printf("%c",getc(fp));
+    printf("%c",getc(fp));
+ 
+    fclose(fp);
+    return 0;
+}
+//=========================================================================================================
+//Q.2) WAP to creat file,store data into file and perform following operations.
+//I)Display all data.
+//II)Count vowels and consonent from file.
+//III)Count digits,special symbols,characteristic.
+//IV)Calculate sum of all digits into file.
+//=========================================================================================================
+
+
